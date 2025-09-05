@@ -1,7 +1,12 @@
-# Original Source URL
+# Reference Sources
 
 - GitHub: https://github.com/call518/ambari-3.0-hadoop-ops-course
 - YouTube: https://www.youtube.com/watch?v=Ao95xAGsA20&t=30s
+
+# Tested Env.
+
+- RockyLinux8 on WSL2(Windows11)
+- Docker-Desktop
 
 # QuickStart
 
