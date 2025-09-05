@@ -1,0 +1,3 @@
+*.pub
+scripts/hosts
+ambari-repo/*

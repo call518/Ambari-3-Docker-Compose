@@ -1,0 +1,78 @@
+
+services:
+  bigtop-hostname0:
+    hostname: bigtop-hostname0.demo.local
+    command: /sbin/init
+    domainname: bigtop.apache.org
+    image: bigtop/puppet:trunk-rockylinux-8
+    mem_limit: 8g
+    mem_swappiness: 0
+    ports:
+      - "7070:8080" # Ambari Server Web-UI
+      - "10001:50070" # HDFS Namenode Web-UI
+      - "14000:14000" # HDFS HTTPFS
+      - "10002:8088" # YARN ResourceManager Web-UI
+      - "10003:3000" # Ambari Metrics Grafana Web-UI
+    privileged: true
+    volumes:
+      - ./ambari-repo:/var/repo/ambari
+      - ./conf/hosts:/etc/hosts
+    networks:
+      ambari_net:
+        ipv4_address: 172.28.0.100
+    restart: unless-stopped
+
+  bigtop-hostname1:
+    hostname: bigtop-hostname1.demo.local
+    command: /sbin/init
+    domainname: bigtop.apache.org
+    image: bigtop/puppet:trunk-rockylinux-8
+    mem_limit: 8g
+    mem_swappiness: 0
+    privileged: true
+    volumes:
+      - ./ambari-repo:/var/repo/ambari
+      - ./conf/hosts:/etc/hosts
+    networks:
+      ambari_net:
+        ipv4_address: 172.28.0.101
+    restart: unless-stopped
+
+  bigtop-hostname2:
+    hostname: bigtop-hostname2.demo.local
+    command: /sbin/init
+    domainname: bigtop.apache.org
+    image: bigtop/puppet:trunk-rockylinux-8
+    mem_limit: 8g
+    mem_swappiness: 0
+    privileged: true
+    volumes:
+      - ./ambari-repo:/var/repo/ambari
+      - ./conf/hosts:/etc/hosts
+    networks:
+      ambari_net:
+        ipv4_address: 172.28.0.102
+    restart: unless-stopped
+
+  bigtop-hostname3:
+    hostname: bigtop-hostname3.demo.local
+    command: /sbin/init
+    domainname: bigtop.apache.org
+    image: bigtop/puppet:trunk-rockylinux-8
+    mem_limit: 8g
+    mem_swappiness: 0
+    privileged: true
+    volumes:
+      - ./ambari-repo:/var/repo/ambari
+      - ./conf/hosts:/etc/hosts
+    networks:
+      ambari_net:
+        ipv4_address: 172.28.0.103
+    restart: unless-stopped
+
+networks:
+  ambari_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.0.0/24

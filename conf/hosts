@@ -1,0 +1,7 @@
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+
+172.28.0.100 bigtop-hostname0.demo.local bigtop-hostname0.demo.local
+172.28.0.101 bigtop-hostname1.demo.local bigtop-hostname1.demo.local
+172.28.0.102 bigtop-hostname2.demo.local bigtop-hostname2.demo.local
+172.28.0.103 bigtop-hostname3.demo.local bigtop-hostname3.demo.local
