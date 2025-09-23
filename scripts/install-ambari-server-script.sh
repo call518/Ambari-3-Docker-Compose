@@ -14,7 +14,7 @@ yum install -y ambari-server
 
 
 # MySQL
-yum -y install https://dev.mysql.com/get/mysql80-community-release-el8-1.noarch.rpm
+#yum -y install https://dev.mysql.com/get/mysql80-community-release-el8-2.noarch.rpm
 
 yum -y install mysql-server
 

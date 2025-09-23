@@ -1,6 +1,7 @@
 
 services:
   bigtop-hostname0:
+    container_name: bigtop-hostname0
     hostname: bigtop-hostname0.demo.local
     command: /sbin/init
     domainname: bigtop.apache.org
@@ -23,6 +24,7 @@ services:
     restart: unless-stopped
 
   bigtop-hostname1:
+    container_name: bigtop-hostname1
     hostname: bigtop-hostname1.demo.local
     command: /sbin/init
     domainname: bigtop.apache.org
@@ -39,12 +41,15 @@ services:
     restart: unless-stopped
 
   bigtop-hostname2:
+    container_name: bigtop-hostname2
     hostname: bigtop-hostname2.demo.local
     command: /sbin/init
     domainname: bigtop.apache.org
     image: bigtop/puppet:trunk-rockylinux-8
     mem_limit: 8g
     mem_swappiness: 0
+    ports:
+      - "16188:6188" # Ambari Metrics API
     privileged: true
     volumes:
       - ./ambari-repo:/var/repo/ambari
@@ -55,6 +60,7 @@ services:
     restart: unless-stopped
 
   bigtop-hostname3:
+    container_name: bigtop-hostname3
     hostname: bigtop-hostname3.demo.local
     command: /sbin/init
     domainname: bigtop.apache.org
